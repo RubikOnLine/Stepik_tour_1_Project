@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
-from .data import *
+
+from .data import tours
 
 # Create your views here.
 

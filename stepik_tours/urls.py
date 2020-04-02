@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.urls import path
 
+from tours.views import MainView, DepartureView, TourView
+
 urlpatterns = [
     path('', MainView.as_view(), name='Main_page_all_tours'),
     path('departure/<str:city_id>/', DepartureView.as_view(), name='Departure_from_city'),
