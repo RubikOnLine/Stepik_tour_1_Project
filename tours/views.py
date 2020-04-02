@@ -21,11 +21,11 @@ class DepartureView(View):
         data = {}
         i = 0
 
-        for key, value in tours.items():
-            if value["departure"] == city_id:
-                data[i] = value
+        for num_tour, decrip_tour in tours.items():
+            if decrip_tour["departure"] == city_id:
+                data[i] = decrip_tour
                 i +=1
-                context['city'] = value['dep']
+                context['city'] = decrip_tour['dep']
 
         context['min_nights'] = min((data[i]["nights"]) for i in range(len(data)))
         context['max_nights'] = max((data[i]["nights"]) for i in range(len(data)))
