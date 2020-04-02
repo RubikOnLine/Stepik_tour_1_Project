@@ -1,0 +1,9 @@
+{% for city_id, city in menu_list.items %}
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto" data-test="navigation">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'Departure_from_city' city_id %}" data-test="navlink">{{city}}</a>
+        </li>
+    </ul>
+</div>
+{% endfor %}
