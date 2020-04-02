@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls import path
 
 urlpatterns = [
-    path('', MainView.as_view(), name='Main'),
-    path('departure/<str:city_id>/', DepartureView.as_view(), name='Dep'),
-    path('tour/<int:id>/', TourView.as_view(), name='Tour_name'),
+    path('', MainView.as_view(), name='Main_page_all_tours'),
+    path('departure/<str:city_id>/', DepartureView.as_view(), name='Departure_from_city'),
+    path('tour/<int:id>/', TourView.as_view(), name='Tour_description_page'),
 ]

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title_from_c_p }}
+{% endblock %}
+
+
+<!-- HERO -->
+{% block contain %}
+    <main class="container mt-3">
+       <h1 class="display-5 mt-4">Летим {{ city }}</h1>
+       <p class="mb-4">Найдено {{ count }} туров, от {{min_price}} до {{max_price}} и от {{min_nights}} ночей до {{max_nights}} ночей</p>
+{% endblock %}
+<!-- EndHERO -->
+
+
+<!-- CARDS -->
+{% block content %}
+<div class="row mt-6" data-test="cards">
+        {% for key, value in data.items %}
+        <div class="col-4" data-test="card">
+            <div class="card mb-3">
+                <img src={{ value.picture }} class="card-img-top" width="300" height="200" data-test="picture">
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-auto"><h5 class="card-title">{{ value.country }}:  {{ value.title }}</h5></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto"><p class="card-text-center-block">{{value.description|truncatechars:50}}</p></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto"><p class="card-text">{{value.date}}</p></div>
+                        <div class="col-auto"><p class="card-text">{{value.nights}}дней</p></div>
+                        <div class="col-auto"><p class="card-text">{{value.price}}Р</p></div>
+                        <div class="col-auto"><p class="card-text">{{value.stars}}★</p></div>
+                    </div>
+                    <br>
+
+                    <a href="{% url 'Tour_description_page' value.id %}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+<!-- ENDCARDS -->
